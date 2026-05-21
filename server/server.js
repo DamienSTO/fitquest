@@ -22,11 +22,11 @@ const app = express();
 
 
 app.use(cors({
-
-  origin: 'http://localhost:3000',
-
+  origin: [
+    'http://localhost:3000',
+    'https://fitquest-umber.vercel.app'  // ton URL Vercel exacte
+  ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-
   credentials: true
 }));
 
