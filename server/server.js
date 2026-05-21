@@ -22,10 +22,14 @@ const app = express();
 
 
 app.use(cors({
-  origin: [
-    'http://localhost:3000',
-    'https://fitquest-umber.vercel.app'  
-  ],
+  origin: function(origin, callback) {
+
+    if (!origin || origin.includes('localhost') || origin.includes('vercel.app')) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS non autorisé'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   credentials: true
 }));
