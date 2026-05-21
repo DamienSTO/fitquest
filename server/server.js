@@ -24,7 +24,7 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://fitquest-umber.vercel.app'  // ton URL Vercel exacte
+    'https://fitquest-umber.vercel.app'  
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   credentials: true
@@ -39,8 +39,8 @@ app.use(express.urlencoded({ extended: true }));
 
 
 mongoose.connect(process.env.MONGODB_URI, {
-  serverSelectionTimeoutMS: 10000, // attend 10 secondes avant d'abandonner
-  family: 4  // force IPv4 — résout le problème DNS sur Windows
+  serverSelectionTimeoutMS: 10000, 
+  family: 4  
 })
   .then(() => {
     console.log('✅ MongoDB connecté avec succès !');
